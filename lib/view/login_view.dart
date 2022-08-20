@@ -1,9 +1,9 @@
-import 'package:firebase_core/firebase_core.dart';
+
 import 'package:flutter/material.dart';
-import 'package:firebase_auth/firebase_auth.dart';
+import 'package:myproject/services/auth/auth_exceptions.dart';
+import 'package:myproject/services/auth/auth_service.dart';
 import 'package:myproject/constants/routes.dart';
-import '../firebase_options.dart';
-import 'dart:developer' as devtools show log;
+import 'package:myproject/services/auth/auth_service.dart';
 
 import '../utilities/show_error_dialog.dart';
 
@@ -70,39 +70,21 @@ late final TextEditingController _email;
                             try{
                               
                               
-                            final userCredential = await FirebaseAuth.instance
-                            
-                                .signInWithEmailAndPassword(
+                            await AuthService.firebase().logIn(
                                     email: email, password: password);
-
-
+                                  final user = AuthService.firebase().currentUser;
+                                  
                                     
                                   // if(userCredential.)  
                                   
-                                  Navigator.of(context).pushNamedAndRemoveUntil(notesRoute, (route) => false,);
+                                 Navigator.of(context).pushNamedAndRemoveUntil(notesRoute, (route) => false,);
                             // devtools.log(userCredential.toString());
-                            }on FirebaseAuthException catch(e){
-                              if(e.code=='user-not-found'){
-                                // devtools.log('something bad happend');
-                                await showErrorDialog(context, 'User not found');
-                              }
-                              if(e.code=='user-not-found'){
-                                // devtools.log('something bad happend');
-                                await showErrorDialog(context, 'User not found');
-                              }
-                              else if(e.code == 'wrong-password'){
-                                // print('wrong password');
-                                await showErrorDialog(context, 'Wrong Password');
-                              }
-                              else{
-                                // devtools.log(e.code.toString());
-                                await showErrorDialog(context, 'Error:${e.code}');
-                              }
-                              // Navigator.of(context).pushNamedAndRemoveUntil('/notes/', (route) => false,);
-                              
-                              // print(e);
-    
-    
+                            } on UserNotFoundAuthException{
+                              await showErrorDialog(context, 'User Not Found'); 
+                            } on WrongPasswordAuthException{
+                              await showErrorDialog(context, 'Wrong Password');
+                            } on GenericAuthException{
+                              await showErrorDialog(context, 'Authentication Error');
                             } catch(e){
                               await showErrorDialog(context, e.toString());
                             }
