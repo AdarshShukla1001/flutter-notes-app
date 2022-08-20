@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "5902308333",
+    "project_id": "myginie-pr",
+    "storage_bucket": "myginie-pr.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:5902308333:android:6655dccf01a0abe80b0de4",
+        "android_client_info": {
+          "package_name": "com.ginieman.myproject"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "5902308333-qojsq38lri3c0lta419o65sedppkp9hc.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBXiDXBa0Phqf95fQWMVIUK5AGTUA3WDME"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "5902308333-qojsq38lri3c0lta419o65sedppkp9hc.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
