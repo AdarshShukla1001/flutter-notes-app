@@ -24,17 +24,17 @@ String get userEmail => AuthService.firebase().currentUser!.email!;
 @override
 void initState(){
   _notesService = NotesService();
-  _notesService.open();
+  // _notesService.open();
   super.initState();
 }
 
 
-@override
-void dispose(){
+// @override
+// void dispose(){
   
-  _notesService.close();
-  super.initState();
-}
+//   _notesService.close();
+//   super.initState();
+// }
 
 
 
@@ -80,16 +80,35 @@ void dispose(){
               builder: (context, snapshot) {
                 switch (snapshot.connectionState){
                   case ConnectionState.waiting:
+                  
                     return const Text('Waiting for all notes ...');
+                  case ConnectionState.active:
+                    final allNotes = snapshot.data as List<DatabaseNote>;
+                    return ListView.builder(itemCount: allNotes.length,
+                    itemBuilder: (context, index) {
+                      final note = allNotes[index];
+                      return ListTile(
+                        title: Text(
+                          note.text,
+                          maxLines: 1,
+                          softWrap: true,
+                          overflow: TextOverflow.ellipsis,
+                          ),
+
+                      );
+                    }, );
+                    
+                    return const Text('got all the notes');
+                    
                   default:
-                    return const CircularProgressIndicator();
+                    return const Center(child: CircularProgressIndicator(),);
                 }
               });
           
             
 
 
-          default:
+            default:
               return CircularProgressIndicator();
           }
         }

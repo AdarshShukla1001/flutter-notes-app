@@ -11,11 +11,16 @@ class NotesService{
 
   List<DatabaseNote> _notes = [];
   static final NotesService _shared = NotesService._sharedInstance();
-  NotesService._sharedInstance();
+  NotesService._sharedInstance(){
+    _notesStreamController = StreamController<List<DatabaseNote>>.broadcast(
+      onListen: (){
+        _notesStreamController.sink.add(_notes);      }
+    );
+  }
 
   factory NotesService() => _shared;
 
-  final _notesStreamController = StreamController<List<DatabaseNote>>.broadcast();
+  late final StreamController<List<DatabaseNote>> _notesStreamController;
 
   Stream<List<DatabaseNote>> get allNotes => _notesStreamController.stream;
 
@@ -326,7 +331,7 @@ const idColumn = "id";
       "text" TEXT,
       "is_synced_with_cloud" INTEGER NOT NULL DEFAULT 0,
       FOREIGN KEY("user_id") REFERENCES "user"("id"),
-      PRIMARY KEY("id" AUTOINCREMENT),
+      PRIMARY KEY("id" AUTOINCREMENT)
     )
 
 ''';
