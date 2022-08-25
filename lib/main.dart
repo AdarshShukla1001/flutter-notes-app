@@ -1,7 +1,8 @@
 import 'package:myproject/constants/routes.dart';
 import 'package:myproject/firebase_options.dart';
 import 'package:myproject/services/auth/auth_service.dart';
-import 'package:myproject/view/notes_view.dart';
+import 'package:myproject/view/notes/notes_view.dart';
+import 'package:myproject/view/notes/new_note_view.dart';
 import 'package:myproject/view/register_view.dart';
 import 'package:flutter/material.dart';
 import 'dart:developer' as devtools show log;
@@ -32,7 +33,8 @@ class MyApp extends StatelessWidget {
        loginRoute:(context)=> const LoginView(),
       registerRoute:(context) => const RegisterView(),
       notesRoute:(context) => const NotesView(),
-      verifyEmailRoute:((context) => const VerifyEmailView())
+      verifyEmailRoute:((context) => const VerifyEmailView()),
+      newNoteRoute: (context) => const NewNoteView(),
       }
     );
   }
