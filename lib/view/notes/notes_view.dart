@@ -48,7 +48,8 @@ void initState(){
         title: const Text('Your Notes'),
         actions: [
           IconButton(onPressed: (){
-            Navigator.of(context).pushNamed(newNoteRoute);
+            Navigator.of(context).pushNamed(CreateOrUpdateNoteRoute);
+             
           }, icon: const Icon(Icons.add)),
           PopupMenuButton<MenuAction>(
 
@@ -91,7 +92,15 @@ void initState(){
                     return NotesListView(notes: allNotes, onDeleteNote: (note) async {
                       devtools.log('deleted');
                       await _notesService.deleteNote(id: note.id);
-                    });
+                    },
+                    onTap: (note) async {
+                      Navigator.of(context).pushNamed(
+                        CreateOrUpdateNoteRoute,
+                        arguments:  note,
+
+                      );
+                    },
+                    );
                     
                     
                   default:
