@@ -115,7 +115,7 @@ Future<void> deleteNote({required int id}) async {
     where: 'id = ?',
     whereArgs: [id],
   );
-  if(deletedCount ==0){
+  if(deletedCount == 0){
     throw CouldNotDeleteNote();
   } else{
     _notes.removeWhere((note) => note.id == id);

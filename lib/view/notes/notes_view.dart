@@ -1,9 +1,12 @@
 
 // import 'package:firebase_auth/firebase_auth.dart';
+import 'dart:math';
+import 'dart:developer' as devtools show log;
 import 'package:flutter/material.dart';
 import 'package:myproject/constants/routes.dart';
 import 'package:myproject/services/auth/auth_service.dart';
 import 'package:myproject/services/crud/notes_service.dart';
+import 'package:myproject/view/notes/notes_list_view.dart';
 
 import '../../enums/menu_action.dart';
 
@@ -81,24 +84,15 @@ void initState(){
                 switch (snapshot.connectionState){
                   case ConnectionState.waiting:
                   
-                    return const Text('Waiting for all notes ...');
+                    
                   case ConnectionState.active:
                     final allNotes = snapshot.data as List<DatabaseNote>;
-                    return ListView.builder(itemCount: allNotes.length,
-                    itemBuilder: (context, index) {
-                      final note = allNotes[index];
-                      return ListTile(
-                        title: Text(
-                          note.text,
-                          maxLines: 1,
-                          softWrap: true,
-                          overflow: TextOverflow.ellipsis,
-                          ),
-
-                      );
-                    }, );
                     
-                    return const Text('got all the notes');
+                    return NotesListView(notes: allNotes, onDeleteNote: (note) async {
+                      devtools.log('deleted');
+                      await _notesService.deleteNote(id: note.id);
+                    });
+                    
                     
                   default:
                     return const Center(child: CircularProgressIndicator(),);

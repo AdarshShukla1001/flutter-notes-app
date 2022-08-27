@@ -74,9 +74,9 @@ class HomePage extends StatelessWidget {
               // }
               // // break;
               // return const Text('Done');
-              return const Text('Done');
+              
             default:
-              return Scaffold(body: CircularProgressIndicator());
+              return const Scaffold(body: CircularProgressIndicator());
               // return const Text("Loading....");
               // break;
           }

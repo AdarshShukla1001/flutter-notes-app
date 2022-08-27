@@ -4,8 +4,8 @@
 # This file should be version controlled.
 
 version:
-  revision: f1875d570e39de09040c8f79aa13cc56baab8db1
-  channel: stable
+  revision: efd54a203a44cdc755490f53fcf1acdfb4c15761
+  channel: master
 
 project_type: app
 
@@ -13,26 +13,26 @@ project_type: app
 migration:
   platforms:
     - platform: root
-      create_revision: f1875d570e39de09040c8f79aa13cc56baab8db1
-      base_revision: f1875d570e39de09040c8f79aa13cc56baab8db1
+      create_revision: efd54a203a44cdc755490f53fcf1acdfb4c15761
+      base_revision: efd54a203a44cdc755490f53fcf1acdfb4c15761
     - platform: android
-      create_revision: f1875d570e39de09040c8f79aa13cc56baab8db1
-      base_revision: f1875d570e39de09040c8f79aa13cc56baab8db1
+      create_revision: efd54a203a44cdc755490f53fcf1acdfb4c15761
+      base_revision: efd54a203a44cdc755490f53fcf1acdfb4c15761
     - platform: ios
-      create_revision: f1875d570e39de09040c8f79aa13cc56baab8db1
-      base_revision: f1875d570e39de09040c8f79aa13cc56baab8db1
+      create_revision: efd54a203a44cdc755490f53fcf1acdfb4c15761
+      base_revision: efd54a203a44cdc755490f53fcf1acdfb4c15761
     - platform: linux
-      create_revision: f1875d570e39de09040c8f79aa13cc56baab8db1
-      base_revision: f1875d570e39de09040c8f79aa13cc56baab8db1
+      create_revision: efd54a203a44cdc755490f53fcf1acdfb4c15761
+      base_revision: efd54a203a44cdc755490f53fcf1acdfb4c15761
     - platform: macos
-      create_revision: f1875d570e39de09040c8f79aa13cc56baab8db1
-      base_revision: f1875d570e39de09040c8f79aa13cc56baab8db1
+      create_revision: efd54a203a44cdc755490f53fcf1acdfb4c15761
+      base_revision: efd54a203a44cdc755490f53fcf1acdfb4c15761
     - platform: web
-      create_revision: f1875d570e39de09040c8f79aa13cc56baab8db1
-      base_revision: f1875d570e39de09040c8f79aa13cc56baab8db1
+      create_revision: efd54a203a44cdc755490f53fcf1acdfb4c15761
+      base_revision: efd54a203a44cdc755490f53fcf1acdfb4c15761
     - platform: windows
-      create_revision: f1875d570e39de09040c8f79aa13cc56baab8db1
-      base_revision: f1875d570e39de09040c8f79aa13cc56baab8db1
+      create_revision: efd54a203a44cdc755490f53fcf1acdfb4c15761
+      base_revision: efd54a203a44cdc755490f53fcf1acdfb4c15761
 
   # User provided section
 
